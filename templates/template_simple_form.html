@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple form demo</title>
+</head>
+<body>
+    <h2>Simple form example</h2>
+    <form method="post" action="/simple_form">
+        {% csrf_token %}
+        <!--It is important especially for 'post' request.Otherwise you might get error on form submission-->
+        <div>
+            <label>Name: </label>
+            <input name="name" type="text">
+        </div>
+        <div>
+            <label>City: </label>
+            <input name="city" type="text">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <br />
+    {% if name %}
+        Thanks for registering with us {{name}}.
+        Your registration details is - <br />
+        Id : {{id}}<br />
+        Name : {{name}}<br />
+        City: {{location}}
+    {% endif %}
+</body>
+</html>

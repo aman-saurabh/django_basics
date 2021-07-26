@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirect on button click</title>
+    <style>
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            padding: 15px 32px;
+        }
+        a, .alt_btn {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        .alt_btn {
+            background-color: red !important;
+        }
+        .alt {
+            background-color: blue !important;
+        }
+    </style>
+</head>
+<body>
+<button><a href="/query_param/?id=9&name=Nishant">Click Me1</a></button>
+<!-- Here "/query_param/?id=9&name=Nishant" is the path value along with query parameters -->
+<button class="alt"><a href="{% url 'hello_app:query_string_param' %}?id=29&name=Pankaj">Click Me2</a></button>
+<!-- Here "query_string_param" is the 'name' of the path whose value is 'query_param' -->
+<!-- i.e we need to use 'name' of the path and not value in above style of URL -->
+<!-- Here you can also see that 'querystring is not the part of {% url ..... } -->
+<!-- If querystring is required then apply it after {% url ..... } as we have done in the above example -->
+
+<!-- But if data is passed in URL inplace of querystring them we need to pass data inside {% url ..... } itself-->
+<!-- As you can see in below example how we have passed 15 for 'id' and 'Vikram' for name inside {% url ..... }-->
+<button class="alt_btn" onclick="location.href='{% url 'hello_app:url_data' 15 'Vikram' %}'">
+    <span style="cursor:pointer;">Click Me3</span>
+</button>
+</body>
+</html>
