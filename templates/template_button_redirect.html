@@ -28,7 +28,8 @@
 <button><a href="/query_param/?id=9&name=Nishant">Click Me1</a></button>
 <!-- Here "/query_param/?id=9&name=Nishant" is the path value along with query parameters -->
 <button class="alt"><a href="{% url 'hello_app:query_string_param' %}?id=29&name=Pankaj">Click Me2</a></button>
-<!-- Here "query_string_param" is the 'name' of the path whose value is 'query_param' -->
+<!-- Here "hello_app" is the app name and "query_string_param" is the 'name' of the path whose path value(i.e actual
+URL) is 'query_param' (Check 'urlpatterns' section of urls.py file if you have confusion) -->
 <!-- i.e we need to use 'name' of the path and not value in above style of URL -->
 <!-- Here you can also see that 'querystring is not the part of {% url ..... } -->
 <!-- If querystring is required then apply it after {% url ..... } as we have done in the above example -->
